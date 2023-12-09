@@ -64,17 +64,8 @@
 <%--    <td colspan="4" align="center">--%>
 <br />
   <div>
-      <c:set var="userId" value="${ userId }" />
-      <c:set var="dtouserId" value="${ dto.userId }" />
-      <c:set var="cateSub" value="${ cateSub }" />
-      <%
-        String cateSub = (String)request.getParameter("cateSub");
-      %>
-      <%
-        String userId = (String)request.getSession().getAttribute("userId");
-      %>
       <c:choose>
-        <c:when test="${ dtouserId eq userId }">
+        <c:when test="${ dto.userId eq userId }">
           <button class="btnedit" type="button" onclick="location.href='${contextPath}/teachercommunity/pass.do?mode=edit&brdId=${ param.brdId }';">
             수정하기
           </button>

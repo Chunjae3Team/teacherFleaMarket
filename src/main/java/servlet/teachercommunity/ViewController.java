@@ -23,6 +23,9 @@ public class ViewController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
+        String userId = (String)request.getSession().getAttribute("userId");
+
+
         // 게시물 불러오기
         BoardDAO dao = new BoardDAO();
         String brdId = request.getParameter("brdId");
@@ -47,6 +50,7 @@ public class ViewController extends HttpServlet {
         }
 
         // 게시물(dto) 저장 후 뷰로 포워드
+        request.setAttribute("userId", userId);
         request.setAttribute("dto", dto);
         request.setAttribute("isImage", isImage);
         request.getRequestDispatcher("/view/board/teachercommunity/view.jsp").forward(request, response);
