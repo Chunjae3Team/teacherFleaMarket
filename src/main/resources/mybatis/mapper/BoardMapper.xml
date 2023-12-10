@@ -51,29 +51,6 @@
         LIMIT #{start}, 10
     </select>
 
-<!--    &lt;!&ndash; SELECT : 게시글 페이징 처리 후 출력 &ndash;&gt;-->
-<!--    <select id="tcselectListPageWithPaging" parameterType="map" resultType="dto.BoardDTO">-->
-<!--        <![CDATA[-->
-<!--        SELECT *-->
-<!--        FROM board-->
-<!--        WHERE idx > 0-->
-<!--        ]]>-->
-<!--        <if test="searchWord != null and !searchWord.equals('')">-->
-<!--            AND-->
-<!--            <choose>-->
-<!--                <when test="searchField == 'title'">-->
-<!--                    title LIKE CONCAT('%', #{searchWord}, '%')-->
-<!--                </when>-->
-<!--                <otherwise>-->
-<!--                    content LIKE CONCAT('%', #{searchWord}, '%')-->
-<!--                </otherwise>-->
-<!--            </choose>-->
-<!--        </if>-->
-<!--        order by brd_id desc-->
-<!--        LIMIT #{start}, 10-->
-<!--    </select>-->
-
-
     <select id="tcselectView" parameterType="String" resultType="dto.BoardDTO">
         select *
         from board
@@ -103,6 +80,13 @@
         INTO board(user_id, title, content, ofile, sfile, cate_main, cate_sub)
         VALUES(#{userId}, #{title}, #{content}, #{ofile}, #{sfile}, 2, #{cateSub})
     </insert>
+
+    <select id="maintcselectTopList" parameterType="map" resultType="dto.BoardDTO">
+        select *
+        from board
+        where cate_main = 2
+        order by view_cnt desc LIMIT 3
+    </select>
 
 
 

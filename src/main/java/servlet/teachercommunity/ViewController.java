@@ -50,7 +50,7 @@ public class ViewController extends HttpServlet {
         }
 
         //현재 로그인 유저 정보 입력
-        String userId = (String)request.getSession().getAttribute("userId");
+//        String userId = (String)request.getSession().getAttribute("userId");
 
         // 게시물(dto) 저장 후 뷰로 포워드
         request.setAttribute("userId", userId);

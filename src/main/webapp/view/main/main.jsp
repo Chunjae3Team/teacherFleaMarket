@@ -197,7 +197,7 @@
             <div class="xans-element- xans-board xans-board-title-1002 xans-board-title xans-board-1002 ">
                 <div class="titleArea">
                     <h2>
-                        지금 가장 인기있는 게시글이에요!
+                        지금 가장 인기있는 선생님 요모조모 게시글이에요!
                     </h2>
                     <p></p>
                 </div>
@@ -205,7 +205,7 @@
             <div class="xans-element- xans-product xans-product-normalpackage"><!-- 정렬기준 외 -->
                 <div class="xans-element- xans-product xans-product-normalmenu">
                     <div class="function">
-                        <button type="button" onclick="location.href='${contextPath}/market/list.do';" style="background-color: #0a53be">바로가기</button>
+                        <button type="button" onclick="location.href='${contextPath}/teachercommunity/list.do';" style="background-color: #0a53be">바로가기</button>
                     </div>
                 </div>
             </div>

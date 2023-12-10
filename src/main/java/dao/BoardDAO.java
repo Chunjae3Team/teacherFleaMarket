@@ -97,6 +97,15 @@ public int tcselectCount(Map<String, Object> map) {
     return result;
   }
 
+  public List<BoardDTO> mainselectTopList(Map<String, Object> map) {
+    SqlSession sqlSession = MyBatisSessionFactory.getSqlSession();
+    BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+
+    List<BoardDTO> result = mapper.maintcselectTopList(map);
+    sqlSession.close();
+    return result;
+  }
+
 
 
 
