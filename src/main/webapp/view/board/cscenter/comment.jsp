@@ -18,14 +18,7 @@
 
 <%-- 댓글 입력 영역 --%>
 <div class = "xans-product-detail">
-  <%-- 댓글 입력 영역 --%>
-  <div id="comment_add">
-    <div class="title">댓글</div>
-    <div class="input"><textarea id="comContent"></textarea></div>
-    <div class="btn"><button type="button" id="add_btn">댓글등록</button></div>
-    <div id="add_message">&nbsp;</div>
-  </div>
-  <%-- 댓글 목록 출력 영역 --%>
+   <%-- 댓글 목록 출력 영역 --%>
   <div id="comment_list"></div>
 </div>
 
@@ -47,24 +40,15 @@
         // 댓글 출력목록의 초기화
         $("#comment_list").children().remove();
 
-
         // 반복지시자 이용하여 출력 >> object객체로 인식!하니까 $넣어서 접근
         $(commentArray).each(function() {
-
-          // 수정 삭제버튼 존재 여부 판단
-          var button = "";
-          if ("${ SessionUserId }" == this.userId){
-            button = "<button>수정</button>&nbsp;<button>삭제</button></div>";
-          }else{
-            button = "";
-          }
           // 수정을 위해 각각의 div에 고유값인 id를 부여 >> 이때 num활용
           // 삭제를 위해 num부여 >> 이때도 num활용
           $("#comment_list").append("<div id='comment_"+this.comId+ "' class='comment' num='"+this.comId+"'>" +
                   "<b>["+this.userId+"]</b>&nbsp;&nbsp;"+this.regDate.year+"년 "+this.regDate.month+"월 "+this.regDate.day+"일" +
                   '<br><br>' +
                   '<div id ="comContent">'+this.comContent.replace(/\n/g, "<br>")+"</div>" +
-                  "<br>" + button);
+                  "<br>");
         });
       },
       error: function() {
