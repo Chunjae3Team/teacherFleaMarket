@@ -70,6 +70,7 @@ public class ListController extends HttpServlet {
 
         List<BoardDTO> boardLists = dao.tcselectListPage(map);
         List<BoardDTO> topLists = dao.selectTopList(map); // 선택한 소분류에서 조회수 기준 인기글 3개 목록 받기
+        List<BoardDTO> maintcLists = dao.maintcLists(map);
 
         // 뷰에 전달할 매개변수 추가
         String pagingImg = BoardPage.pagingStr(totalCount, pageSize,
@@ -83,6 +84,7 @@ public class ListController extends HttpServlet {
         // 전달할 데이터를 request 영역에 저장 후 TeacherCommunityBoard.jsp로 포워드
         request.setAttribute("boardLists", boardLists);
         request.setAttribute("topLists", topLists);
+        request.setAttribute("maintcLists", maintcLists);
         request.setAttribute("map", map);
         request.getRequestDispatcher("/view/board/teachercommunity/list.jsp").forward(request, response);
     }

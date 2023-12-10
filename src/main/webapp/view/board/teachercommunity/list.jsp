@@ -72,11 +72,21 @@
                     <td>${ row.viewCnt }</td>  <!-- 조회수 -->
                   </tr>
                 </c:forEach>
+
+                <c:forEach items="${ maintcLists }" var="row" varStatus="loop">
+                  <tr align="center">
+                    <td align="center">  <!-- 제목(링크) -->
+                      <a href="${contextPath}/teachercommunity/view.do?brdId=${ row.brdId }">${ row.title }</a>
+                    </td>
+                    <td>${ row.userId }</td>  <!-- 작성자 -->
+                    <td>${ row.viewCnt }</td>  <!-- 조회수 -->
+                  </tr>
+                </c:forEach>
               </c:otherwise>
             </c:choose>
             </tbody>
-
             </table>
+          </div>
 
 <%--          <!-- 검색 폼 -->--%>
 <%--          <form id="tcboardSearchForm" method="get">--%>

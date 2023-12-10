@@ -53,6 +53,10 @@ public class MainController extends HttpServlet {
 				request.setAttribute("marketTopLists", marketTopLists);
 
 				//신수진
+//				BoardDAO dao = new BoardDAO();
+//				Map<String, Object> map = new HashMap<String, Object>();
+//				List<BoardDTO> maintcTopList = dao.maintcselectTopList(map);
+//				request.setAttribute("maintcLists", maintcTopList);
 				
 				nextPage = "/view/main/main.jsp";
 			} else if(action.equals("/change.do")){

@@ -81,7 +81,7 @@
         VALUES(#{userId}, #{title}, #{content}, #{ofile}, #{sfile}, 2, #{cateSub})
     </insert>
 
-    <select id="maintcselectTopList" parameterType="map" resultType="dto.BoardDTO">
+    <select id="maintcLists" parameterType="map" resultType="dto.BoardDTO">
         select *
         from board
         where cate_main = 2

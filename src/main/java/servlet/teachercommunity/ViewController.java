@@ -56,7 +56,7 @@ public class ViewController extends HttpServlet {
         request.setAttribute("userId", userId);
         request.setAttribute("dto", dto);
         request.setAttribute("isImage", isImage);
-        request.setAttribute("SessionUserId", userId);
+//        request.setAttribute("SessionUserId", userId);
         request.getRequestDispatcher("/view/board/teachercommunity/view.jsp").forward(request, response);
     }
 }

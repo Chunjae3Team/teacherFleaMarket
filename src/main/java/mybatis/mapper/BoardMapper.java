@@ -16,7 +16,7 @@ public interface BoardMapper {
     List<BoardDTO> tcselectTopList(Map<String, Object> map);
     int tcUpdatePost(BoardDTO dto);
     int tcinsertWrite(BoardDTO dto);
-    List<BoardDTO> maintcselectTopList(Map<String, Object> map);
+    List<BoardDTO> maintcLists(Map<String, Object> map);
 
 
 

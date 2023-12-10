@@ -228,6 +228,15 @@
                 <div class="d-flex text-body-secondary pt-3">
                     <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
                     <p class="pb-3 mb-0 small lh-sm border-bottom">
+<%--                        <c:forEach items="${ maintcLists }" var="row" varStatus="loop">--%>
+<%--                            <tr align="center">--%>
+<%--                                <td align="center">  <!-- 제목(링크) -->--%>
+<%--                                    <a href="${contextPath}/teachercommunity/view.do?brdId=${ row.brdId }">${ row.title }</a>--%>
+<%--                                </td>--%>
+<%--                                <td>${ row.userId }</td>  <!-- 작성자 -->--%>
+<%--                                <td>${ row.viewCnt }</td>  <!-- 조회수 -->--%>
+<%--                            </tr>--%>
+<%--                        </c:forEach>--%>
                         <strong class="d-block text-gray-dark">제목입니다</strong>
                         This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
                     </p>
