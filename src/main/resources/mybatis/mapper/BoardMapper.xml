@@ -81,13 +81,13 @@
         VALUES(#{userId}, #{title}, #{content}, #{ofile}, #{sfile}, 2, #{cateSub})
     </insert>
 
-    <select id="maintcLists" parameterType="map" resultType="dto.BoardDTO">
+    <select id="maintcLists" resultType="dto.BoardDTO">
         select *
         from board
         where cate_main = 2
+        and Date(reg_date) =  Date(now())
         order by view_cnt desc LIMIT 3
     </select>
-
 
 
 

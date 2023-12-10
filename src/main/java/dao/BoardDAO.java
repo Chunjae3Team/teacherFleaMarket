@@ -97,11 +97,11 @@ public int tcselectCount(Map<String, Object> map) {
     return result;
   }
 
-  public List<BoardDTO> maintcLists(Map<String, Object> map) {
+  public List<BoardDTO> maintcLists() {
     SqlSession sqlSession = MyBatisSessionFactory.getSqlSession();
     BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 
-    List<BoardDTO> result = mapper.maintcLists(map);
+    List<BoardDTO> result = mapper.maintcLists();
     sqlSession.close();
     return result;
   }

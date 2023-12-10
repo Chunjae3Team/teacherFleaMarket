@@ -15,6 +15,14 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link href="${contextPath}/css/carousel.css" rel="stylesheet">
 
+    <style>
+        .function button {
+            font-size: large;
+            width: auto;
+            height: auto;
+            background-color: #0a53be;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -126,55 +134,32 @@
                 </c:forEach>
             </div>
             <br>
-<%--    인기게시글     --%>
-            <div class="xans-element- xans-board xans-board-title-1002 xans-board-title xans-board-1002 ">
-                <div class="titleArea">
-                    <h2>
-                        지금 가장 인기있는 선생님 요모조모 게시글이에요!
-                    </h2>
-                    <p></p>
+            <div class="ec-base-table typeList gBorder">
+                <div class="xans-element- xans-board xans-board-title-1002 xans-board-title xans-board-1002 ">
+                    <div class="titleArea">
+                        <h2>선생님 요모조모 오늘의 인기글이에요!</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="xans-element- xans-product xans-product-normalpackage"><!-- 정렬기준 외 -->
-                <div class="xans-element- xans-product xans-product-normalmenu">
-                    <div class="function">
-                        <button type="button" onclick="location.href='${contextPath}/teachercommunity/list.do';" style="background-color: #0a53be">바로가기</button>
+
+                <div class="xans-element- xans-product xans-produgitct-normalpackage"><!-- 정렬기준 외 -->
+                    <div class="xans-element- xans-product xans-product-normalmenu">
+                        <div class="function">
+                            <button type="button" onclick="location.href='${contextPath}/teachercommunity/list.do?cateSub=1';" style="background-color: #0a53be">바로가기</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <c:forEach items="${ maintcLists }" var="row" varStatus="loop">
             <div class="my-3 p-3 bg-body rounded shadow-sm">
-                <div class="d-flex text-body-secondary pt-3">
-                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+              <div class="d-flex text-body-secondary pt-3">
+                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
                     <p class="pb-3 mb-0 small lh-sm border-bottom">
-                        <strong class="d-block text-gray-dark">제목입니다</strong>
-                        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
-                    </p>
-                </div>
-                <div class="d-flex text-body-secondary pt-3">
-                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
-                    <p class="pb-3 mb-0 small lh-sm border-bottom">
-                        <strong class="d-block text-gray-dark">제목입니다</strong>
-                        Some more representative placeholder content, related to this other user. Another status update, perhaps.
-                    </p>
-                </div>
-                <div class="d-flex text-body-secondary pt-3">
-                    <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
-                    <p class="pb-3 mb-0 small lh-sm border-bottom">
-<%--                        <c:forEach items="${ maintcLists }" var="row" varStatus="loop">--%>
-<%--                            <tr align="center">--%>
-<%--                                <td align="center">  <!-- 제목(링크) -->--%>
-<%--                                    <a href="${contextPath}/teachercommunity/view.do?brdId=${ row.brdId }">${ row.title }</a>--%>
-<%--                                </td>--%>
-<%--                                <td>${ row.userId }</td>  <!-- 작성자 -->--%>
-<%--                                <td>${ row.viewCnt }</td>  <!-- 조회수 -->--%>
-<%--                            </tr>--%>
-<%--                        </c:forEach>--%>
-                        <strong class="d-block text-gray-dark">제목입니다</strong>
-                        This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
+                        <strong class="d-block text-gray-dark">[${ row.userId}] <a href="${contextPath}/teachercommunity/view.do?brdId=${ row.brdId }">${ row.title }</a></strong>
+                        ${ row.regDate }
                     </p>
                 </div>
             </div>
-        </div>
+            </c:forEach>
     </div>
 </div>
 <script src="${contextPath}/js/bootstrap.bundle.min.js"></script>

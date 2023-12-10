@@ -17,11 +17,14 @@ import java.util.List;
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	List<BoardDTO> marketTopLists = null;
+	List<BoardDTO> maintcLists = null;
+	
+	
 	@Override
 	public void init(){
-		System.out.println("여긴 몇번");
 		BoardDAO brdDao = new BoardDAO();
 		marketTopLists = brdDao.marketSelectTop(); // 조회수 기준 중고게시판 인기글 6개 목록 받기
+		maintcLists = brdDao.maintcLists(); // 조회수 기준 선생님 요모조모 인기글 3개 목록 받기
 	}
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,6 +34,7 @@ public class MainController extends HttpServlet {
 		String action = request.getPathInfo();
 
 		request.setAttribute("marketTopLists", marketTopLists);
+		request.setAttribute("maintcLists", maintcLists);
 
 
 
@@ -44,10 +48,6 @@ public class MainController extends HttpServlet {
 
 
 				//신수진
-//				BoardDAO dao = new BoardDAO();
-//				Map<String, Object> map = new HashMap<String, Object>();
-//				List<BoardDTO> maintcTopList = dao.maintcselectTopList(map);
-//				request.setAttribute("maintcLists", maintcTopList);
 				
 				nextPage = "/view/main/main.jsp";
 			} else if(action.equals("/change.do")){
